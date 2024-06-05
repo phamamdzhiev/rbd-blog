@@ -23,7 +23,8 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    public function registerDirectives() {
+    public function registerDirectives()
+    {
         Blade::directive('image', handler: function (string $name) {
             return "<?php echo  asset('storage/'.$name);?>";
         });

@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }} Admin</title>
-    @vite('resources/css/app.css')
+    @vite('resources/css/admin.css')
 </head>
 <body class="font-sans antialiased ">
+@auth('admin')
+    @include('admin.includes.header')
+@endauth
+@include('admin.includes.flash-message')
 <main class="container py-4">
     @yield('body')
 </main>

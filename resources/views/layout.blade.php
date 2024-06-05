@@ -10,6 +10,9 @@
 </head>
 @vite('resources/css/app.css')
 <body class="font-sans antialiased">
-@yield('body')
+@include('includes.header')
+<main class="container py-4">
+    @yield('body')
+</main>
 </body>
 </html>

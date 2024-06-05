@@ -23,4 +23,9 @@ class Article extends \Illuminate\Database\Eloquent\Model
     {
         return $this->belongsTo(Admin::class);
     }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
 }

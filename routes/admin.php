@@ -8,11 +8,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/login', [\App\Http\Controllers\Admin\AdminController::class, 'login']);
     });
 
-//    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+    // * Articles
 
     Route::middleware('auth:admin')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin.dashboard');
+        Route::resource('articles', \App\Http\Controllers\Admin\ArticleController::class);
+        Route::get('/logout', [\App\Http\Controllers\Admin\AdminController::class, 'logout'])->name('admin.logout');
     });
 });

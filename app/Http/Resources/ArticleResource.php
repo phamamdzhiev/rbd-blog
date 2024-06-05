@@ -14,7 +14,6 @@ class ArticleResource extends JsonResource
             'content' => $this->content,
             'slug' => $this->slug,
             'image_path' => $this->image_path,
-            'is_published' => $this->is_published,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'admin' => [

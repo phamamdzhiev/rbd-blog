@@ -11,7 +11,11 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $posts = Article::with(['admin'])->where('is_published', '=', true)->get();
-        return ArticleResource::collection($posts);
+        $articles = Article::published()
+            ->with('admin')
+            ->latest()
+            ->get();
+
+        return ArticleResource::collection($articles);
     }
 }

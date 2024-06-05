@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Comment;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ArticleResource extends JsonResource
@@ -21,6 +22,20 @@ class ArticleResource extends JsonResource
                 'name' => $this->admin->name,
                 'email' => $this->admin->email
             ],
+            'comments' => $this->comments->map(function (Comment $comment) {
+                return [
+                    'id' => $comment->id,
+                    'content' => $comment->content,
+                    'parent_id' => $comment->parent_id,
+                    'created_at' => $comment->created_at,
+                    'updated_at' => $comment->updated_at,
+                    'user' => [
+                        'id' => $comment->user->id,
+                        'name' => $comment->user->name,
+                        'email' => $comment->user->email
+                    ]
+                ];
+            })
         ];
     }
 }

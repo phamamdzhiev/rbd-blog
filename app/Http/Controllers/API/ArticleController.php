@@ -12,7 +12,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::published()
-            ->with('admin')
+            ->with(['admin', 'comments', 'comments.user'])
             ->latest()
             ->get();
 

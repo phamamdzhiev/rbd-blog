@@ -11,6 +11,7 @@
 @vite('resources/css/app.css')
 <body class="font-sans antialiased">
 @include('includes.header')
+@include('includes.flash-message')
 <main class="container py-4">
     @yield('body')
 </main>

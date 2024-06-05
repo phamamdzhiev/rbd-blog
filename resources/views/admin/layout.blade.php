@@ -10,7 +10,7 @@
 @auth('admin')
     @include('admin.includes.header')
 @endauth
-@include('admin.includes.flash-message')
+@include('includes.flash-message')
 <main class="container py-4">
     @yield('body')
 </main>

@@ -24,6 +24,11 @@ class Article extends \Illuminate\Database\Eloquent\Model
         return $this->belongsTo(Admin::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function scopePublished($query)
     {
         return $query->where('is_published', true);

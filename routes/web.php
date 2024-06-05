@@ -15,7 +15,13 @@ Route::group(['middleware' => 'guest', 'prefix' => 'user'], function () {
     Route::post('/register', [\App\Http\Controllers\UserController::class, 'register']);
 });
 
-Route::get('/user/logout', [\App\Http\Controllers\UserController::class, 'logout'])
-    ->middleware('auth:web')
-    ->name('user.logout');
+Route::group(['middleware' => 'auth:web', 'prefix' => 'user'], function () {
+    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('user.logout');
+    Route::post('/article/{article}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name(
+        'comments.store'
+    );
+});
+
+
+
 

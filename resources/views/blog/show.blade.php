@@ -5,6 +5,7 @@
         <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
             <article
                 class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue">
+                <img class="max-w-max w-full mb-6" src="@image($article->image_path)" alt="{{$article->title}}"/>
                 <header class="mb-4 lg:mb-6 not-format">
                     <h1 class="capitalize mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">
                         {{$article->title}}

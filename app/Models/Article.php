@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Article extends \Illuminate\Database\Eloquent\Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'content',
+        'is_published',
         'image_path'
     ];
 

@@ -27,7 +27,7 @@ class ProcessArticleService
         $article->slug = Str::slug($result['title']);
         $article->is_published = (bool)$result['is_published'];
 
-        if (array_key_exists('image', $result)) {
+        if (array_key_exists('image', $result) && $result['image'] instanceof UploadedFile) {
             $this->uploadImage($result['image'], $article);
         }
 

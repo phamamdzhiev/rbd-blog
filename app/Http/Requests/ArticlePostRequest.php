@@ -16,12 +16,12 @@ class ArticlePostRequest extends FormRequest
         $rules = [
             'title' => 'required|max:250',
             'content' => 'required|max:2500',
-            'image' => ['required', 'image', 'max:2048'],
+            'image' => ['required', 'max:2048'],
             'is_published' => 'required|boolean'
         ];
 
         if ($this->route('article')) {
-            $rules['image'] = ['nullable', 'image', 'max:2048'];
+            $rules['image'] = ['nullable', 'max:2048'];
         }
 
         return $rules;

@@ -30,7 +30,7 @@ class ArticleController extends Controller
             $article = new Article;
             $service->process($article);
             Session::flash('success', 'Created successfully!');
-            return to_route('articles.index');
+            return to_route('articles.index', [], 201);
         } catch (\Throwable $e) {
             Session::flash('error', 'Error! Article not created due to: ' . $e->getMessage());
             return back()->withInput();
